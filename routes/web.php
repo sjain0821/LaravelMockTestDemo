@@ -24,3 +24,7 @@ Route::get('forgot', '\App\Modules\Auth\Controllers\ForgotPasswordController@get
 Route::post('forgot', '\App\Modules\Auth\Controllers\ForgotPasswordController@sendResetLinkEmail');
 Route::get('/user/reset-password/{user_id}/{user_token}','\App\Modules\Auth\Controllers\ResetPasswordController@resetPassword');
 Route::post('reset-password','\App\Modules\Auth\Controllers\ResetPasswordController@postResetPassword');
+
+Route::get('google-login', '\App\Modules\Auth\Controllers\LoginController@loginWithGoogle');
+Route::get('github-login', '\App\Modules\Auth\Controllers\LoginController@loginWithGithub');
+

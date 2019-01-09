@@ -54,9 +54,22 @@
                             </div>
                         </div>
                     </form>
+                    <div class="btn white darken-4 col s10 m4">
+                        <a href="{{url('google-login')}}" style="text-transform:none; color:black;">
+                            <div class="pull-left col col-6 col-md-5 col-lg-3" style="border:1px solid; padding-top: 1%; padding-bottom: 1%;">
+                                <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/> Login with Google
+                            </div>
+                        </a>
+
+                        <a href="{{url('github-login')}}" style="text-transform:none; color:black;">
+                            <div class="pull-left col col-6 col-md-5 col-lg-3" style="border:1px solid; padding-top: 1%; padding-bottom: 1%; ">                                  <i class="fa fa-github github-style"></i> Login With Github
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
