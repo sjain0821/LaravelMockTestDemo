@@ -65,6 +65,10 @@
                             <div class="pull-left col col-6 col-md-5 col-lg-3" style="border:1px solid; padding-top: 1%; padding-bottom: 1%; ">                                  <i class="fa fa-github github-style"></i> Login With Github
                             </div>
                         </a>
+                             <a href="{{url('facebook-login')}}" style="text-transform:none; color:#0000cc;">
+                            <div class="pull-left col col-6 col-md-5 col-lg-3" style="border:1px solid; padding-top: 1%; padding-bottom: 1%; ">                                  <i class="fa fa-facebook github-style"></i> Login With Facebook
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

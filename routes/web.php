@@ -27,4 +27,6 @@ Route::post('reset-password','\App\Modules\Auth\Controllers\ResetPasswordControl
 
 Route::get('google-login', '\App\Modules\Auth\Controllers\LoginController@loginWithGoogle');
 Route::get('github-login', '\App\Modules\Auth\Controllers\LoginController@loginWithGithub');
+Route::get('facebook-login', '\App\Modules\Auth\Controllers\LoginController@loginWithFacebook');
+
 
