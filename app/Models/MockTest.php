@@ -2,6 +2,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
+
 class MockTest extends Model
 {
 
@@ -11,23 +13,16 @@ class MockTest extends Model
      * @var array
      */
     protected $fillable = [
-        'section_id','examination_id','test_name'
+        'section_id','examination_id','test_name','max_question'
     ];
 
-     /**
-     * Get the post that owns the comment.
-     */
-    public function section()
+    public function getMockTests($mock_tests)
     {
-        return $this->belongsTo('App\Models\Section');
-    }
-
-    /**
-     * Get the post that owns the comment.
-     */
-    public function examination()
-    {
-        return $this->belongsTo('App\Models\Examination');
+        return DB::table('mock_tests')
+               ->join('sections', 'mock_tests.section_id', '=', 'sections.id')
+               ->select('mock_tests.section_id','section_name','mock_tests.test_id as id','max_question')
+               ->where('test_name',$mock_tests)
+               ->get();
     }
 
 }

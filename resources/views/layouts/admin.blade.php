@@ -106,6 +106,9 @@
                             <li>
                                 <a href="{{ url('categories') }}"><i class="fa fa-list-alt fa-fw"></i>{{ __('messages.categories') }}</a>
                             </li>
+                            <li>
+                                <a href="{{ url('directions') }}"><i class="fa fa-list-alt fa-fw"></i>{{ __('messages.direction_guidelines') }}</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

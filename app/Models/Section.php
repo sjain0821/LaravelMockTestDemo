@@ -15,7 +15,7 @@ class Section extends Model
         'section_name','is_deleted'
     ];
 
-     	/**
+     /**
      * Get the comments for the blog post.
      */
     public function mocktests()

@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="col-lg-12">
 		<h3 class="page-header">
-			<i class="fa fa-table"></i> Add Mock Test
+			<i class="fa fa-table"></i> Add Question
 			<a class="btn btn-primary pull-right" href=" {{ url('/') }}/examination"> {{__('Section::messages.go_back')}}</a>
 		</h3>
 	</div>
@@ -12,7 +12,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Add Mock Test
+				Add Question
 			</div>
 			<div class="panel-body">
 				<div class="row">

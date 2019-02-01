@@ -39,7 +39,6 @@ class MockTestController extends Controller
     {
         if (!empty($id)) {
             $mocktests = MockTest::where('id',$id)->select('examination_name','id')->get()->toArray();
-            
             return view('MockTest::add', ['mocktests'=>$mocktests]);
         } else {
         	$data['sections'] = Section::get();
@@ -57,9 +56,9 @@ class MockTestController extends Controller
     public function show($mocktest)
     {
         $test_name =  str_replace("_", "", strtoupper($mocktest)); 
-        $data['users'] = \App\Models\MockTest::with('section','examination')->where('test_name',$test_name)->get();
+        $this->mockTestObj = new  MockTest;
+        $data['users'] = $this->mockTestObj->getMockTests($test_name);
         $data['mocktest'] = $mocktest;
-
         return view('MockTest::index',$data);
     }
 
@@ -73,7 +72,8 @@ class MockTestController extends Controller
         $rules = array(
             'test_name'                   => 'required|unique:mock_tests',
             'examination_name'            => 'required',
-            'section'                     => 'required'  
+            'section'                     => 'required',
+            'max_question'                => 'required'  
         );
          if(!empty($id)){
             $rules['test_name']     = 'required|unique:mock_tests,test_name,'.$id.',id';
@@ -83,10 +83,12 @@ class MockTestController extends Controller
             return redirect()->back()->withInput()->withErrors($validator->errors());
         } else {
             $sections = $request->section;
+            $max_questions = $request->max_question;
             foreach ($sections as $key => $value) {
                 $formData = [
                     'examination_id'=>$request->examination_name,
                     'section_id'    => $value,
+                    'max_question'  => $max_questions[$key],
                     'test_name'     => strtoupper($request->test_name)
                 ];
                 MockTest::create($formData);

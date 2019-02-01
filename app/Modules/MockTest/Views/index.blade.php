@@ -30,13 +30,18 @@
                     <thead>
                         <tr>
                             <th>Section Name</th>
+                            <th>Max Question</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if(isset($users))                   
                         @foreach($users as $key)
                         <tr class="odd gradeX">
-                            <td>{{$key->section->section_name}}</td>
+                            <td>{{$key->section_name}}</td>
+                                <td class="text-center">
+                                  
+                                  {{$key->max_question}}
+                            </td>
                         </tr>
                         @endforeach
                         @endif

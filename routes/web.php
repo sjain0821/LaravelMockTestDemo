@@ -29,11 +29,14 @@ Route::post('reset-password','\App\Modules\Auth\Controllers\ResetPasswordControl
 Route::get('google-login', '\App\Modules\Auth\Controllers\LoginController@loginWithGoogle');
 Route::get('github-login', '\App\Modules\Auth\Controllers\LoginController@loginWithGithub');
 Route::get('facebook-login', '\App\Modules\Auth\Controllers\LoginController@loginWithFacebook');
+Route::group(['middleware' => ['auth']], function () {
+
 //Profile Module
 Route::get('profile', '\App\Modules\Profile\Controllers\ProfileController@getProfileData');
 Route::post('profile', '\App\Modules\Profile\Controllers\ProfileController@postProfileData');
 Route::get('exams', '\App\Modules\Examination\Controllers\ExaminationController@getExamsListUserSide');
 
+});
 //Admin Routes
 Route::get('admin', '\App\Modules\Auth\Controllers\AdminController@getLogin');
 Route::post('admin', '\App\Modules\Auth\Controllers\AdminController@postLogin');
@@ -78,6 +81,9 @@ Route::group(['middleware' => ['auth','admin']], function () {
 	Route::get('/showPosts/{id?}', '\App\Modules\Post\Controllers\PostController@index')->name('showPosts');
 	Route::get('/addHint/{question_id?}', '\App\Modules\Answers\Controllers\AnswersController@getAnswer')->name('addHint');
 	Route::post('/addHint/{question_id?}', '\App\Modules\Answers\Controllers\AnswersController@postAnswer');
+
+	//Directions
+	Route::get('/directions/{id?}', '\App\Modules\Directions\Controllers\DirectionsController@index')->name('directions');
 });
 
 //hindi

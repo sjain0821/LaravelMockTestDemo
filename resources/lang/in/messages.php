@@ -10,5 +10,6 @@ return [
 	'user_profile'	=> 'उपयोगकर्ता प्रोफाइल',
 	'settings'		=> 'सेटिंग्स',
 	'logout'		=> 'लोग आउट',
-	'tutorials'		=> 'ट्यूटोरियल'
+	'tutorials'		=> 'ट्यूटोरियल',
+	'direction_guidelines'=>'दिशा निर्देश'
 ];

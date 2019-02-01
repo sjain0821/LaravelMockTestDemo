@@ -10,5 +10,6 @@ return [
 	'user_profile'		=> 'User Profile',
 	'settings'			=> 'Settings',
 	'logout'			=> 'Logout',
-	'tutorials'			=> 'Tutorials'
+	'tutorials'			=> 'Tutorials',
+	'direction_guidelines'=>'Direction Guidelines'
 ];
