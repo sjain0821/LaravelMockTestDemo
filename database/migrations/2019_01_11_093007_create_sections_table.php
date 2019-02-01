@@ -14,8 +14,9 @@ class CreateSectionsTable extends Migration
     public function up()
     {
         Schema::create('sections', function (Blueprint $table) {
-            $table->increments('section_id');
-            $table->string('section_name');
+            $table->increments('id');
+            $table->string('section_name')->unique();
+            $table->tinyInteger('is_deleted')->default('2')->comment('1:deleted,2:Not Deleted');
             $table->timestamps();
         });
     }

@@ -16,7 +16,13 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 class RegisterController extends Controller
 {
     use RegistersUsers;
-
+    
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
     public function __construct()
     {
         $this->middleware('guest');
@@ -43,10 +49,11 @@ class RegisterController extends Controller
             'first_name'            => 'required|min:3|max:50',
             'last_name'             => 'required|min:3|max:50',
             'email'                 => 'required|email|unique:users',
-            'password'              => 'required',
+            'password'              => 'required|same:password_confirmation',
             'password_confirmation' => 'required|same:password'
         );
         $validator = Validator::make($request->all(), $rules);
+
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator->errors());
         } else {
@@ -58,6 +65,7 @@ class RegisterController extends Controller
                     'user_id' => Config::get('constants.USER_ROLE'),
                     'email' => $request->input("email"),
                     'password' => bcrypt($request->input("password")),
+                    'signup_type'   => 'Web',
                     'user_created_at' => date('Y-m-d H:i:s'),
                     'user_updated_at'   => date('Y-m-d H:i:s'),
                     'user_status' => Config::get('constants.ACTIVE_STATUS')

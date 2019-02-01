@@ -14,7 +14,4 @@ use Illuminate\Http\Request;
 */
 Route::post('login', '\App\Modules\APIs\Controllers\APIController@login');
 Route::post('register', '\App\Modules\APIs\Controllers\APIController@register');
-
-Route::group(['middleware' => 'auth:api'], function(){
-	Route::post('details', '\App\Modules\APIs\Controllers\APIController@details');
-});
+Route::post('details', '\App\Modules\APIs\Controllers\APIController@details');

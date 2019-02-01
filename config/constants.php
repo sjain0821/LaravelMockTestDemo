@@ -6,6 +6,7 @@
 
 return [
 	'USER_ROLE'		=> '2',
+	'ADMIN_ROLE'	=> 1,
 	'TOKEN_LENGTH'	=> '8',
 	'ACTIVE_STATUS' 		=> 1,
 	'DEACTIVE_STATUS' 		=> 0,   

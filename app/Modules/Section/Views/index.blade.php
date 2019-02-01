@@ -1,3 +1,6 @@
-<?php
 
-echo trans('Section::example.welcome');
+@extends('layouts.admin')
+
+@section('content')
+
+@endsection
